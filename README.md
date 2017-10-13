@@ -32,8 +32,8 @@ so the Chaos Toolkit can pick up them:
 
 Note that 2FA is not yet implemented in this package.
 
-Next, oin your experiment you must tell the Chaos Toolkit to load those
-variables and inject them into this package activities. At the top of the
+Next you need to specify to load those
+variables and inject them into this package's activities. At the top of the
 experiment file, add the following object:
 
 ```json
