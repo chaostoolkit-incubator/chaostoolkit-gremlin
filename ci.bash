@@ -3,11 +3,11 @@ set -eo pipefail
 
 function lint () {
     echo "Checking the code syntax"
-    pycodestyle --first chaosprometheus
+    pycodestyle --first chaosgremlin
 }
 
 function build () {
-    echo "Building the choastoolkit-prometheus package"
+    echo "Building the choastoolkit-gremlin package"
     python setup.py build
 }
 
