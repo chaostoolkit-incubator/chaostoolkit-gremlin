@@ -1,5 +1,7 @@
 # chaostoolkit-gremlin
 
+[![Build Status](https://travis-ci.org/chaostoolkit/chaostoolkit-gremlin.svg?branch=master)](https://travis-ci.org/chaostoolkit/chaostoolkit-gremlin)
+
 [Gremlin, Inc][gremlin] support for the [Chaos Toolkit][chaostoolkit].
 
 [gremlin]: https://gremlininc.com/
