@@ -6,7 +6,7 @@ from typing import Any, Dict
 
 import requests
 
-from chaoslib.exceptions import FailedAction
+from chaoslib.exceptions import FailedActivity
 from chaoslib.types import Secrets
 
 from chaosgremlin import auth, GREMLIN_BASE_URL
@@ -25,7 +25,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
     `org_name`.
 
     The function returns the identifier of the attack or raises
-    :exc:`FailedActivity` if the authentication failed and :exc:`FailedAction`
+    :exc:`FailedActivity` if the authentication failed and
     when the attack could not be started.
 
     .. seealso:: https://app.gremlininc.com/docs/
@@ -46,7 +46,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
         })
 
     if r.status_code != 201:
-        raise FailedAction(
+        raise FailedActivity(
             "Gremlin attack failed: {m}".format(m=r.text))
 
     return r.text

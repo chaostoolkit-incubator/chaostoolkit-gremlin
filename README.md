@@ -72,15 +72,14 @@ Here is a full example of running a CPU attack experiment:
     },
     "method": [
         {
-            "title": "Let's max out the CPU of a node",
-            "action": {
-                "title": "Let's max out the CPU of a node",
-                "layer": "application",
+            "title": "attack-on-cpu",
+            "type": "action",
+            "background": true,
+            "secrets": "gremlin",
+            "provider": {
                 "type": "python",
                 "module": "chaosgremlin.actions",
                 "func": "attack",
-                "background": true,
-                "secrets": "gremlin",
                 "arguments": {
                     "command": {
                         "type": "cpu"

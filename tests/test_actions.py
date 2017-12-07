@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import uuid
 
-from chaoslib.exceptions import FailedAction
+from chaoslib.exceptions import FailedActivity
 import pytest
 import requests
 import requests_mock
@@ -34,7 +34,7 @@ def test_failed_creating_attack():
         ])
         m.post(url, status_code=400, text="invalid command")
 
-        with pytest.raises(FailedAction) as ex:
+        with pytest.raises(FailedActivity) as ex:
             attack(
                 command={"type": "boom", "args": ["-i", "10.0.0.0/24"]},
                 target={"type": "Exact", "exact": ["foo-server1"]},
