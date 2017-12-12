@@ -4,6 +4,7 @@ import json
 import os
 from typing import Any, Dict
 
+from logzero import logger
 import requests
 
 from chaoslib.exceptions import FailedActivity
@@ -49,4 +50,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
         raise FailedActivity(
             "Gremlin attack failed: {m}".format(m=r.text))
 
-    return r.text
+    result = r.text
+    logger.debug("attack submitted succesfully: {r}".format(r=result))
+
+    return result
