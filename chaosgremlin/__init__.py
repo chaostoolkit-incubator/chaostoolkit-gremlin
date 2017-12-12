@@ -5,8 +5,8 @@ from chaoslib.exceptions import FailedActivity
 
 __all__ = ["__version__", "GREMLIN_BASE_URL", "auth"]
 
-__version__ = '0.2.0'
-GREMLIN_BASE_URL = "https://api.gremlininc.com/v1"
+__version__ = '0.3.0'
+GREMLIN_BASE_URL = "https://api.gremlin.com/v1"
 
 
 def auth(email: str, password: str, org_name: str):

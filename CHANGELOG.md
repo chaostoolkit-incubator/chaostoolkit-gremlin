@@ -8,6 +8,7 @@
 
 - More logging
 - Updated to chaostoolkit-lib 0.7.0
+- Switched API endpoint to https://api.gremlin.com/v1
 
 
 ## [0.2.0][] - 2017-12-08
