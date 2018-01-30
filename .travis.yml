@@ -10,7 +10,17 @@ install:
 env:
   global:
   - PYPI_USER_NAME: "chaostoolkit"
-  - secure: "X2QBezwdu8xC+mk+WP7WgBZj40XkTL9xQ4O+t9Zu6EE+P8AX/jrGzyLLe8YcuINkAaJv4ioaIh3JqsJnVEm/yaBhMEurn8MVPwZNe8ViVsDZm9DpOeQR/26mgmavB1axBkmy0kRNF7spiTdTiKqi7ssbp7aOWh2MVc0MS8bs0JOFs2hLADCEXRh7p6kXVozQlDAsPuSy2NcnBb3FQWjYtP0A0XrUwRzet6SVqFybPIP7aJY4R1bcgw5SY9DJ3OxorelQyQnLoYZPMprNynX5AtzuKFc1JMIafOwG3M4GI5MijTm1umqEIWpHULeh96UnnVAo4OZkLCar1s2hTesGZv3i/4zjsMJQ5cQUOPfz/DT0YkWnGcW9vvu8f8wS4MqQATwSDkbyZs1eTvvXw6fUodi+O/Noi6sMfpVPr1I/26oXyMLpnY38Eakgmuax5iuO6HmHRHdsII5YUNdu9jw5pbjm+Zt2T/RZKYf0p8RFORDxqhoVQmKmg6hNiPxAkQRCHhOobhz2uOQZhyuq06vkisgzFTqzjCyArpoY8KfWN5GMtUlmuDNbbk3gVQhW6BhXmFMl1OXzzz/tmuiVgrKp+hRMCJVZflBfCz1sVh5HLDZeDA6fWTPRodO/vk43N1JUj2QZkyZUE5Ol6pB5vuDX/Wxyi38sSVO5r5ppuAeVIsM="
+  - secure: "GF+J61wc3x6W2WKvLWNbeElP4GzFBNQlLwjlBLpwob0Qtwu2KZL+Gj57H7o2h3LkEISuFGdZtcHmSs6k3hEC/DcnY7/K011eSe862FskwgWPkLw9r8TvAgIHm27c1OBLKRPTfNARt5aN3HVWiqPogZcfL5YZmxoWlZmnxevbQ2L1yh11+gsi5Gbw5owr3TiHwnxp8c8ysKfJbLRnpbxdNwwLAUp/U41zu6vVQutHNTo92tbys30F3aZwCJlzze/v9WcJ3DK744Mce5bgkFYhMRXtK2eGG/YBzMD7p3TrCFpkFnFqoVP72pUMPzyfEBsfKsa46VvwokSj7DjdSsdJQOvVLPtjLcxYfSWvc9mrgxSnnTKD+sJe751Zi/PaQzlr86wKH0v79GnoHgMHY3bpzy+nb6TS4yTuG6gyHr7Xnwp+KYPUJMptZ4g0vlIZNeVnF//pIMA+fl9Kc+cKlKYf7TWi36+1uieY6D4VYnJToqoCeYl97cK4GvmnT8Uvr8DN9TjXPsgZPJmanlRsUoodBffJUxMSnyzlx2L0iuc3BXNG5hDTKS3t9DqiAld6L46bZnpzj7pYdNqpfhTm5lm61EH4ImYxcYbhjkidJi6zIh3GNuA23EsDerGUPoooUdZ1h5RIfSrf69JunMgt25M73mHIIm46vRiDxE54Pv7HEcE="
 
 script: 
   - bash ci.bash
+
+notifications:
+  webhooks:
+    urls:
+    - 'https://webhook.atomist.com/atomist/travis/teams/T76U4GPGF'
+    on_cancel: always
+    on_error: always
+    on_start: always
+    on_failure: always
+    on_success: always
