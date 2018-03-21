@@ -42,9 +42,18 @@ experiment file, add the following object:
 {
     "secrets": {
         "gremlin": {
-            "email": "env.GREMLIN_EMAIL",
-            "password": "env.GREMLIN_PWD",
-            "org_name": "env.GREMLIN_ORG_NAME"
+            "email": {
+                "type": "env",
+                "key": "GREMLIN_EMAIL"
+            },
+            "password": {
+                "type": "env",
+                "key": "GREMLIN_PWD"
+            },
+            "org_name": {
+                "type": "env",
+                "key": "GREMLIN_ORG_NAME"
+            }
         }
     }
 }
@@ -54,7 +63,7 @@ Finally, in all activities where you call a function from this package, make
 sure to add the following property:
 
 ```json
-"secrets": "gremlin"
+"secrets": ["gremlin"]
 ```
 
 Here is a full example of running a CPU attack experiment:
@@ -65,9 +74,18 @@ Here is a full example of running a CPU attack experiment:
     "description": "CPU-usage may be impactful on our response time",
     "secrets": {
         "gremlin": {
-            "email": "env.GREMLIN_EMAIL",
-            "password": "env.GREMLIN_PWD",
-            "org_name": "env.GREMLIN_ORG_NAME"
+            "email": {
+                "type": "env",
+                "key": "GREMLIN_EMAIL"
+            },
+            "password": {
+                "type": "env",
+                "key": "GREMLIN_PWD"
+            },
+            "org_name": {
+                "type": "env",
+                "key": "GREMLIN_ORG_NAME"
+            }
         }
     },
     "method": [
@@ -75,7 +93,7 @@ Here is a full example of running a CPU attack experiment:
             "title": "attack-on-cpu",
             "type": "action",
             "background": true,
-            "secrets": "gremlin",
+            "secrets": ["gremlin"],
             "provider": {
                 "type": "python",
                 "module": "chaosgremlin.actions",
