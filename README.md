@@ -92,7 +92,7 @@ Here is a full example of running a CPU attack experiment:
         {
             "title": "attack-on-cpu",
             "type": "action",
-            "background": true
+            "background": true,
             "provider": {
                 "type": "python",
                 "module": "chaosgremlin.actions",
