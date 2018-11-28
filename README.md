@@ -30,7 +30,7 @@ so the Chaos Toolkit can pick up them:
 * `GREMLIN_EMAIL`: the email used to register to Gremlin and associated to that
   organisation
 * `GREMLIN_PWD`: your password
-* `GREMLIN_ORG_NAME`: the oprganisation's name you created
+* `GREMLIN_ORG_NAME`: the organisation's name you created
 
 Note that 2FA is not yet implemented in this package.
 
