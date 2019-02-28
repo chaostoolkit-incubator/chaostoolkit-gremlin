@@ -29,7 +29,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
     :exc:`FailedActivity` if the authentication failed and
     when the attack could not be started.
 
-    .. seealso:: https://app.gremlininc.com/docs/
+    .. seealso:: https://www.gremlin.com/docs/
     """
     session = auth(**secrets)
 
