@@ -4,7 +4,7 @@
 
 [Gremlin, Inc][gremlin] support for the [Chaos Toolkit][chaostoolkit].
 
-[gremlin]: https://gremlininc.com/
+[gremlin]: https://www.gremlin.com/
 [chaostoolkit]: http://chaostoolkit.org/
 
 ## Install
@@ -30,7 +30,7 @@ so the Chaos Toolkit can pick up them:
 * `GREMLIN_EMAIL`: the email used to register to Gremlin and associated to that
   organisation
 * `GREMLIN_PWD`: your password
-* `GREMLIN_ORG_NAME`: the oprganisation's name you created
+* `GREMLIN_ORG_NAME`: the organisation's name you created
 
 Note that 2FA is not yet implemented in this package.
 
@@ -90,14 +90,14 @@ Here is a full example of running a CPU attack experiment:
     },
     "method": [
         {
-            "title": "attack-on-cpu",
+            "name": "attack-on-cpu",
             "type": "action",
             "background": true,
-            "secrets": ["gremlin"],
             "provider": {
                 "type": "python",
                 "module": "chaosgremlin.actions",
                 "func": "attack",
+                "secrets": ["gremlin"],
                 "arguments": {
                     "command": {
                         "type": "cpu"
