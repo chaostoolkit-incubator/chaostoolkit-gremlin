@@ -32,7 +32,7 @@ def auth(email: str, password: str, org_name: str):
 
     return session
 
-def auth(api_key: str):
+def auth_key(api_key: str):
     """
     Private function that returns mock session containing only an API Key.
     """

@@ -10,7 +10,7 @@ import requests
 from chaoslib.exceptions import FailedActivity
 from chaoslib.types import Secrets
 
-from chaosgremlin import auth, GREMLIN_BASE_URL
+from chaosgremlin import auth, auth_key, GREMLIN_BASE_URL
 
 
 __all__ = ["attack"]
@@ -18,7 +18,7 @@ __all__ = ["attack"]
 
 def attack(command: Dict[str, Any], target: Dict[str, Any],
            labels: Dict[str, Any] = None, tags: Dict[str, Any] = None,
-           secrets: Secrets = None, api_key: str = None):
+           secrets: Secrets = None):
     """
     Send attack declaration (JSON) to Gremlin API for execution. Please refer to Gremlin's
     documentation for the meaning of each argument. The `secrets` argument is
@@ -34,7 +34,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
     if secrets is not None:
         session = auth(**secrets)
     else:
-        session = auth(os.environ.get('GREMLIN_API_KEY'))   # Your API Key should be declared as an environment variable  
+        session = auth_key(os.environ.get('GREMLIN_API_KEY'))   # This change assumes that the API Key is declared as an environment variable  
 
     url = "{base}/attacks/new".format(base=GREMLIN_BASE_URL)
     r = requests.post(
