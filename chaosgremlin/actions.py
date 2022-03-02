@@ -18,9 +18,9 @@ __all__ = ["attack"]
 
 def attack(command: Dict[str, Any], target: Dict[str, Any],
            labels: Dict[str, Any] = None, tags: Dict[str, Any] = None,
-           secrets: Secrets = None):
+           secrets: Secrets = None, api_key: str = None):
     """
-    Triggers an attack on the CPU of a host. Please refer to Gremlin's
+    Send attack declaration (JSON) to Gremlin API for execution. Please refer to Gremlin's
     documentation for the meaning of each argument. The `secrets` argument is
     a mapping which must have the following keys: `email`, `password` and
     `org_name`.
@@ -31,7 +31,10 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
 
     .. seealso:: https://www.gremlin.com/docs/
     """
-    session = auth(**secrets)
+    if secrets is not None:
+        session = auth(**secrets)
+    else:
+        session = auth(api_key) 
 
     url = "{base}/attacks/new".format(base=GREMLIN_BASE_URL)
     r = requests.post(
@@ -51,6 +54,6 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
             "Gremlin attack failed: {m}".format(m=r.text))
 
     result = r.text
-    logger.debug("attack submitted succesfully: {r}".format(r=result))
+    logger.debug("attack submitted successfully: {r}".format(r=result))
 
     return result
