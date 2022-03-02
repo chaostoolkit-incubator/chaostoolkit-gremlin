@@ -34,7 +34,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
     if secrets is not None:
         session = auth(**secrets)
     else:
-        session = auth(api_key) 
+        session = auth(os.environ.get('GREMLIN_API_KEY'))   # Your API Key should be declared as an environment variable  
 
     url = "{base}/attacks/new".format(base=GREMLIN_BASE_URL)
     r = requests.post(
