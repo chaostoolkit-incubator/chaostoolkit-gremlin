@@ -25,7 +25,7 @@ def test_auth_fails():
             auth(EMAIL, PASSWORD, ORG_NAME)
         assert "Gremlin authentication failed: Invalid credentials" in str(ex)
 
-def test_auth_key_fails():
+def test_auth_key_none():
     url = "{base}/users/auth".format(base=GREMLIN_BASE_URL)
     with requests_mock.mock() as m:
         m.post(
@@ -35,8 +35,8 @@ def test_auth_key_fails():
         )
 
         with pytest.raises(FailedActivity) as ex:
-            auth_key(MOCK_KEY)
-        assert "Gremlin authentication failed: Invalid credentials" in str(ex)
+            auth_key(None)
+        assert "Gremlin authentication failed: Please provide a valid API Key" in str(ex)
 
 def test_unknown_org():
     url = "{base}/users/auth".format(base=GREMLIN_BASE_URL)

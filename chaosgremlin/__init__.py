@@ -36,4 +36,9 @@ def auth_key(api_key: str):
     """
     Private function that returns mock session containing only an API Key.
     """
+    if api_key is None:
+        raise FailedActivity(
+            "Gremlin authentication failed: No API Key present"
+            )
+
     return {'header': f'Key {api_key}'}
