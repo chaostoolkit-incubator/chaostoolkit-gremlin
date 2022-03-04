@@ -36,7 +36,7 @@ def test_auth_key_none():
 
         with pytest.raises(FailedActivity) as ex:
             auth_key(None)
-        assert "Gremlin authentication failed: Please provide a valid API Key" in str(ex)
+        assert "Gremlin authentication failed: No API Key present" in str(ex)
 
 def test_unknown_org():
     url = "{base}/users/auth".format(base=GREMLIN_BASE_URL)
