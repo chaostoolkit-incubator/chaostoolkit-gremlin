@@ -9,7 +9,6 @@ from chaosgremlin import auth, auth_key, GREMLIN_BASE_URL
 EMAIL = "jon@example.com"
 PASSWORD = "notyourfatherluke"
 ORG_NAME = "starpeace"
-MOCK_KEY = 'examplekey'
 
 
 def test_auth_fails():
