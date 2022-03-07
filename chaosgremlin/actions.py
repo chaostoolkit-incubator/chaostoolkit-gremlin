@@ -20,7 +20,7 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
            labels: Dict[str, Any] = None, tags: Dict[str, Any] = None,
            secrets: Secrets = None):
     """
-    Send attack declaration (JSON) to Gremlin API for execution. Please refer to Gremlin's
+    Triggers an attack on the CPU of a host. Please refer to Gremlin's
     documentation for the meaning of each argument. The `secrets` argument is
     a mapping which must have the following keys: `email`, `password` and
     `org_name`.
