@@ -18,7 +18,7 @@ __all__ = ["attack"]
 
 def attack(command: Dict[str, Any], target: Dict[str, Any],
            labels: Dict[str, Any] = None, tags: Dict[str, Any] = None,
-           secrets: Secrets = None, api_key: str = None):
+           secrets: Secrets = None, team_id: str = None):
     """
     Send attack declaration (JSON) to Gremlin API for execution. Please refer to Gremlin's
     documentation for the meaning of each argument. The `secrets` argument is
@@ -33,9 +33,14 @@ def attack(command: Dict[str, Any], target: Dict[str, Any],
     """
     if secrets is not None:
         session = auth(**secrets)
-        url = f"{GREMLIN_BASE_URL}/attacks/new"
+        team_id = os.environ.get('GREMLIN_TEAM_ID', session["teams"][0]["identifier"])
+        url = f"{GREMLIN_BASE_URL}/attacks/new?teamId={team_id}"
     else:
         session = auth_key(os.environ.get('GREMLIN_API_KEY'))
+        if not os.environ.get('GREMLIN_TEAM_ID'):
+            raise FailedActivity(
+                "Gremlin attack failed: Team ID must be provided with API Key authentication."
+            )
         url = f"{GREMLIN_BASE_URL}/attacks/new?teamId={os.environ.get('GREMLIN_TEAM_ID')}"  
 
     r = requests.post(
