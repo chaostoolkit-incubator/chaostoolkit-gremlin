@@ -143,6 +143,7 @@ Here's an example of the above CPU attack, with API Key authentication:
     ]
 }
 ```
+**Note:** When using API Key authentication, your Team ID must also be set as an environment variable: `$GREMLIN_TEAM_ID`. When using email/password authentication and you do not set a specific Team ID, the first Team ID associated with your authenticated `session` will be used. 
 
 ## Contribute
 
