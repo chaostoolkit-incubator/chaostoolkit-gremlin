@@ -18,7 +18,7 @@ __all__ = ["attack"]
 
 def attack(command: Dict[str, Any], target: Dict[str, Any],
            labels: Dict[str, Any] = None, tags: Dict[str, Any] = None,
-           secrets: Secrets = None, team_id: str = None):
+           secrets: Secrets = None):
     """
     Send attack declaration (JSON) to Gremlin API for execution. Please refer to Gremlin's
     documentation for the meaning of each argument. The `secrets` argument is
