@@ -112,6 +112,39 @@ Here is a full example of running a CPU attack experiment:
 }
 ```
 
+### API Key Authentication
+
+In order to use an API Key as your method of authentication, you'll have to set it as an environment variable: `$GREMLIN_API_KEY`.
+You can construct your experiments the same as before, but with the `secrets` section omitted. When `secrets` is not present, chaostoolkit-gremlin will grab your pre-registered Gremlin API Key and bundle it with your experiment at runtime. 
+Here's an example of the above CPU attack, with API Key authentication:
+```json
+{
+    "title": "Can our system handle a node being CPU-busy?",
+    "description": "CPU-usage may be impactful on our response time",
+    "method": [
+        {
+            "name": "attack-on-cpu",
+            "type": "action",
+            "background": true,
+            "provider": {
+                "type": "python",
+                "module": "chaosgremlin.actions",
+                "func": "attack",
+                "arguments": {
+                    "command": {
+                        "type": "cpu"
+                    },
+                    "target": {
+                        "type": "Random"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+**Note:** When using API Key authentication, your Team ID must also be set as an environment variable: `$GREMLIN_TEAM_ID`. When using email/password authentication and you do not set a specific Team ID, the first Team ID associated with your authenticated `session` will be used. 
+
 ## Contribute
 
 If you wish to contribute more functions to this package, you are more than
